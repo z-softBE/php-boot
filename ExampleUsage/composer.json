@@ -3,9 +3,7 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=8.3",
-    "php-boot/di": "@dev",
-    "php-boot/http": "@dev",
-    "php-boot/routing": "@dev"
+    "php-boot/starter-web": "@dev"
   },
   "autoload": {
     "psr-4": {

@@ -1,2 +1,4 @@
+production: false
+
 hello:
   world: "Hello, I'm a property"

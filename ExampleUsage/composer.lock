@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "009b74e342e0d6b458bbbd58f61f72e3",
+    "content-hash": "a8f62b0e0132d6583d1666e731bfefd1",
     "packages": [
         {
             "name": "brick/math",
@@ -378,6 +378,31 @@
             "time": "2024-07-22T08:39:35+00:00"
         },
         {
+            "name": "php-boot/core",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Core",
+                "reference": "fa5e0d37bd872454a4ebc645ad0e32090fc0ee7b"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/di": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Core\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "php-boot/di",
             "version": "dev-master",
             "dist": {
@@ -449,6 +474,33 @@
             "autoload": {
                 "psr-4": {
                     "PhpBoot\\Http\\Routing\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "php-boot/starter-web",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Starters/Web",
+                "reference": "f150c147862644c5d615b3ee2190ae9b624ebcb3"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/core": "@dev",
+                "php-boot/http": "@dev",
+                "php-boot/routing": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Starter\\Web\\": "src/"
                 }
             },
             "license": [
@@ -991,9 +1043,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "php-boot/di": 20,
-        "php-boot/http": 20,
-        "php-boot/routing": 20
+        "php-boot/starter-web": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
