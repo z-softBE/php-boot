@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9c392038a20e9b280f8698c7c91b843",
+    "content-hash": "9c892c47cf0100c95fa2b0ed61713f2f",
     "packages": [
         {
             "name": "brick/math",
@@ -568,12 +568,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "cd03cc3c085aa94b046bd2d342b08d6b0e5d834f"
+                "reference": "042e47e28c5e03f1cf6772fdf3dd4e0785433e05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/cd03cc3c085aa94b046bd2d342b08d6b0e5d834f",
-                "reference": "cd03cc3c085aa94b046bd2d342b08d6b0e5d834f",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/042e47e28c5e03f1cf6772fdf3dd4e0785433e05",
+                "reference": "042e47e28c5e03f1cf6772fdf3dd4e0785433e05",
                 "shasum": ""
             },
             "require": {
@@ -637,7 +637,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-05T12:02:27+00:00"
+            "time": "2024-07-29T08:29:21+00:00"
         },
         {
             "name": "doctrine/orm",
@@ -1221,12 +1221,13 @@
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Components/Routing",
-                "reference": "6181185b1c4b4bfd1d8c5db36df4eba37414b8e4"
+                "reference": "33e27c547fc6585d51d206306213e110ecd2ad01"
             },
             "require": {
                 "jms/serializer": "^3.30.0",
                 "php": ">=8.3",
                 "php-boot/di": "@dev",
+                "php-boot/event": "@dev",
                 "php-boot/http": "@dev",
                 "php-boot/utils": "@dev",
                 "ramsey/uuid": "^4.7.6"
@@ -1235,6 +1236,30 @@
             "autoload": {
                 "psr-4": {
                     "PhpBoot\\Http\\Routing\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "php-boot/security",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Security",
+                "reference": "e427c56fc38feece75f5c0f210a4f2b7432be9eb"
+            },
+            "require": {
+                "php": ">=8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Security\\": "src/"
                 }
             },
             "license": [
@@ -1373,6 +1398,34 @@
             "autoload": {
                 "psr-4": {
                     "PhpBoot\\Starter\\Web\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "php-boot/starter-web-security",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Starters/WebSecurity",
+                "reference": "d0d78e1a3a5ced1153ad9785d585ff4764212b58"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/core": "@dev",
+                "php-boot/event": "@dev",
+                "php-boot/security": "@dev",
+                "php-boot/starter-web": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Starter\\Web\\Security\\": "src/"
                 }
             },
             "license": [
@@ -3039,7 +3092,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "php-boot/starter-web": 20,
+        "php-boot/starter-web-security": 20,
         "php-boot/starter-doctrine-orm": 20,
         "php-boot/starter-twig": 20,
         "php-boot/starter-event": 20,

@@ -3,7 +3,7 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=8.3",
-    "php-boot/starter-web": "@dev",
+    "php-boot/starter-web-security": "@dev",
     "php-boot/starter-doctrine-orm": "@dev",
     "php-boot/starter-twig": "@dev",
     "php-boot/starter-event": "@dev",

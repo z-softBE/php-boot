@@ -2,9 +2,10 @@
 
 namespace App;
 
+use PhpBoot\Starter\Web\Security\WebSecurityKernel;
 use PhpBoot\Starter\Web\WebKernel;
 
-class AppKernel extends WebKernel
+class AppKernel extends WebSecurityKernel
 {
 
     #[\Override] protected function getNamespacesToScan(): array
@@ -12,6 +13,7 @@ class AppKernel extends WebKernel
         return [
             'App',
             'PhpBoot\\Starter\\Web\\',
+            'PhpBoot\\Starter\\Web\\Security\\',
             'PhpBoot\\Starter\\DoctrineORM\\',
             'PhpBoot\\Starter\\Twig\\',
             'PhpBoot\\Starter\\Event\\',
