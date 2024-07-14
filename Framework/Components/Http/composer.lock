@@ -1,0 +1,48 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "122758479aed234ab225ed2c61b0f520",
+    "packages": [
+        {
+            "name": "php-boot/utils",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Utils",
+                "reference": "200881f44757f5fde696cca25ef34728e9368b60"
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "php": ">=8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Utils\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "php-boot/utils": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.3"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "php-boot/http",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.3",
+    "php-boot/utils": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpBoot\\Http\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Components/*",
+      "options": {
+        "useSymlink": true
+      }
+    }
+  ]
+}
