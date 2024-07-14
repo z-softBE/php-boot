@@ -6,7 +6,8 @@
     "php": ">=8.3",
     "php-boot/core": "@dev",
     "php-boot/http": "@dev",
-    "php-boot/routing": "@dev"
+    "php-boot/routing": "@dev",
+    "php-boot/starter-event": "@dev"
   },
   "autoload": {
     "psr-4": {

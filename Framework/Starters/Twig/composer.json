@@ -6,6 +6,7 @@
     "php": ">=8.3",
     "php-boot/core": "@dev",
     "php-boot/template": "@dev",
+    "php-boot/starter-event": "@dev",
     "twig/twig": "^3.0"
   },
   "autoload": {
