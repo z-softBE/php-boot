@@ -41,7 +41,7 @@ readonly class Router
         $controller = $route->getControllerBean()->getService();
         $executionArguments = $this->routeArgumentGenerator->generateRouteArguments($route, $request);
 
-        $result = $route->getMethod()->invoke($controller, $executionArguments);
+        $result = $route->getMethod()->invoke($controller, ...$executionArguments);
 
         if ($result instanceof Response) {
             return $result;

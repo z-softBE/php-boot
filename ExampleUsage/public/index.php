@@ -1,5 +1,6 @@
 <?php
 
+use JMS\Serializer\SerializerBuilder;
 use PhpBoot\Di\Container\ServiceContainer;
 use PhpBoot\Di\Inject\ServiceCreator;
 use PhpBoot\Di\Property\PropertiesReader;
@@ -9,6 +10,10 @@ use PhpBoot\Http\Common\HttpStatusCode;
 use PhpBoot\Http\Request\RequestFactory;
 use PhpBoot\Http\Response\JsonResponse;
 use PhpBoot\Http\Response\Response;
+use PhpBoot\Http\Routing\Generator\RouteArgumentGenerator;
+use PhpBoot\Http\Routing\Generator\RouteResponseGenerator;
+use PhpBoot\Http\Routing\Matcher\RouteMatcher;
+use PhpBoot\Http\Routing\Router;
 use PhpBoot\Http\Routing\Scan\RouteScanner;
 
 error_reporting(E_ALL);
@@ -38,4 +43,15 @@ $container = new ServiceContainer($beanMap);
 $routeScanner = new RouteScanner();
 $routes = $routeScanner->scanForRoutes($container);
 
-var_dump($routes);
+$serializer = SerializerBuilder::create()->build();
+$router = new Router(
+    new RouteMatcher($routes),
+    new RouteArgumentGenerator($serializer),
+    new RouteResponseGenerator($serializer)
+);
+
+$request = RequestFactory::createFromGlobals();
+$response = $router->createResponseFromRequest($request);
+
+$response->prepare($request);
+$response->send();

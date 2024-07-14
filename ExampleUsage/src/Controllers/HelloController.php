@@ -29,6 +29,8 @@ class HelloController
         #[QueryParam(name: 'capitalize', defaultValue: false, required: false)] bool $capitalize
     ): string
     {
+        var_dump($authHeader);
+        var_dump($capitalize);
         return "Hello world" . $name;
     }
 
