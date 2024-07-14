@@ -1,0 +1,26 @@
+{
+  "name": "php-boot/routing",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.3",
+    "php-boot/di": "@dev",
+    "php-boot/http": "@dev",
+    "php-boot/utils": "@dev",
+    "jms/serializer": "^3.30.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpBoot\\Http\\Routing\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Components/*",
+      "options": {
+        "useSymlink": true
+      }
+    }
+  ]
+}
