@@ -47,4 +47,20 @@ final readonly class ReflectionTypeValidator
         }
     }
 
+    public static function validateMethodParameterType(ReflectionParameter $parameter, string $className, string $methodName): void
+    {
+        $name = $parameter->getName();
+        $type = $parameter->getType();
+
+        if ($type === null) {
+            throw new ReflectionTypeException("The parameter '{$name}' in class '{$className}' 
+            does not have a type. A type is required");
+        }
+
+        if ($type instanceof ReflectionUnionType || $type instanceof ReflectionIntersectionType) {
+            throw new ReflectionTypeException("The parameter '{$name}' in class '{$className}' of method '{$methodName}' 
+            has multiple types. This is not (yet) supported.");
+        }
+    }
+
 }
