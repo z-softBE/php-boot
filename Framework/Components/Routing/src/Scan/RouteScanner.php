@@ -27,6 +27,7 @@ use PhpBoot\Http\Routing\Scan\Model\RouteInfo;
 use PhpBoot\Utils\ArrayUtils;
 use ReflectionAttribute;
 use ReflectionClass;
+use ReflectionException;
 use ReflectionMethod;
 use ReflectionNamedType;
 use ReflectionParameter;
@@ -55,8 +56,9 @@ class RouteScanner
     /**
      * @param BeanInfo $controller
      * @return RouteInfo[]
-     * @throws ReflectionTypeException
      * @throws PathInvalidException
+     * @throws ReflectionTypeException
+     * @throws ReflectionException
      */
     private function scanForRoutesInController(BeanInfo $controller): array
     {
@@ -90,7 +92,7 @@ class RouteScanner
                 ->withMethod($method)
                 ->build();
 
-            // TODO: Validate route
+            ScannedRouteValidator::validateRoute($route, $method);
 
             $routes[] = $route;
         }
