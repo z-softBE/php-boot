@@ -13,6 +13,7 @@ use PhpBoot\Http\Routing\Attributes\Path\PostPath;
 use PhpBoot\Http\Routing\Attributes\Response\ResponseBody;
 use PhpBoot\Http\Routing\Attributes\Response\ResponseBodyType;
 use PhpBoot\Http\Routing\Attributes\Response\ResponseStatus;
+use PhpBoot\Security\Attribute\HasAnyAuthority;
 use PhpBoot\Starter\Twig\TwigRenderer;
 
 #[Controller]
@@ -31,6 +32,7 @@ class ProductController
     #[PostPath(path: '/products/{name}')]
     #[ResponseBody(type: ResponseBodyType::JSON)]
     #[ResponseStatus(statusCode: HttpStatusCode::HTTP_CREATED)]
+    #[HasAnyAuthority(['ROLE_ADMIN'])]
     public function createProduct(#[PathVariable] string $name): Product
     {
         $product = new Product();
@@ -45,6 +47,7 @@ class ProductController
     #[GetPath(path: '/products/{name}')]
     #[ResponseBody(type: ResponseBodyType::RAW, produces: 'text/html')]
     #[ResponseStatus(statusCode: HttpStatusCode::HTTP_OK)]
+    #[HasAnyAuthority(['ROLE_USER'])]
     public function getProduct(#[PathVariable] string $name): string
     {
         $product = $this->productRepository->getProductByName($name);

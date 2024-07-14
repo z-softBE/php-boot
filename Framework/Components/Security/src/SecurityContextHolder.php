@@ -15,7 +15,7 @@ final class SecurityContextHolder
         return self::$instance;
     }
 
-    private Authentication|null $authentication;
+    private Authentication|null $authentication = null;
 
     private function __construct()
     {
