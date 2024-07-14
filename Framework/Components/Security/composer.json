@@ -3,7 +3,8 @@
   "minimum-stability": "dev",
   "license": "MIT",
   "require": {
-    "php": ">=8.3"
+    "php": ">=8.3",
+    "nette/php-generator": "^4.1"
   },
   "autoload": {
     "psr-4": {

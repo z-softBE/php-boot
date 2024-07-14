@@ -4,6 +4,11 @@ namespace PhpBoot\Security\Scan\Model;
 
 readonly class SecurityRule
 {
+    public static function fromArray(array $config): self
+    {
+        return new self($config['routeId'], $config['authorities']);
+    }
+
     private string $routeId;
     /** @var string[]  */
     private array $authorities;

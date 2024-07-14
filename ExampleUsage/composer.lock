@@ -1435,9 +1435,10 @@
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Components/Security",
-                "reference": "e427c56fc38feece75f5c0f210a4f2b7432be9eb"
+                "reference": "845ae50ab96ecb2803c355e1c973844e56767283"
             },
             "require": {
+                "nette/php-generator": "^4.1",
                 "php": ">=8.3"
             },
             "type": "library",
