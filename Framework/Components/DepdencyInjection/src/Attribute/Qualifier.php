@@ -12,7 +12,7 @@ readonly class Qualifier
     /**
      * @param string $name
      */
-    public function s__construct(string $name)
+    public function __construct(string $name)
     {
         $this->name = $name;
     }

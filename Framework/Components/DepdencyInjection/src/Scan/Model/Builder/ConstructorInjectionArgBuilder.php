@@ -26,7 +26,7 @@ class ConstructorInjectionArgBuilder
         return $this;
     }
 
-    public function withQualifier(Qualifier|null $qualifier): self
+    public function withQualifier(string|null $qualifier): self
     {
         $this->qualifier = $qualifier;
         return $this;

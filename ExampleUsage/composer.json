@@ -1,0 +1,29 @@
+{
+  "type": "project",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=8.3",
+    "php-boot/di": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Components/*",
+      "options": {
+        "useSymlink": true
+      }
+    },
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Starters/*",
+      "options": {
+        "useSymlink": true
+      }
+    }
+  ]
+}
