@@ -12,7 +12,7 @@ class Bean
     /**
      * @param string|null $name
      */
-    public function __construct(string|null $name)
+    public function __construct(string|null $name = null)
     {
         $this->name = $name;
     }

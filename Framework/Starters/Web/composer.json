@@ -1,0 +1,32 @@
+{
+  "name": "php-boot/starter-web",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.3",
+    "php-boot/core": "@dev",
+    "php-boot/http": "@dev",
+    "php-boot/routing": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpBoot\\Starter\\Web\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Components/*",
+      "options": {
+        "useSymlink": true
+      }
+    },
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Starters/*",
+      "options": {
+        "useSymlink": true
+      }
+    }
+  ]
+}
