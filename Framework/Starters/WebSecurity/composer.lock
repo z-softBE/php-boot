@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a205a0e36f66c8f7344b155339347af4",
+    "content-hash": "ba092fa42076ceadc096fc013098dccf",
     "packages": [
         {
             "name": "brick/math",
@@ -378,6 +378,31 @@
             "time": "2024-07-22T08:39:35+00:00"
         },
         {
+            "name": "php-boot/core",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Core",
+                "reference": "fa5e0d37bd872454a4ebc645ad0e32090fc0ee7b"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/di": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Core\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "php-boot/di",
             "version": "dev-master",
             "dist": {
@@ -444,6 +469,113 @@
             "autoload": {
                 "psr-4": {
                     "PhpBoot\\Http\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "php-boot/routing",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Routing",
+                "reference": "6181185b1c4b4bfd1d8c5db36df4eba37414b8e4"
+            },
+            "require": {
+                "jms/serializer": "^3.30.0",
+                "php": ">=8.3",
+                "php-boot/di": "@dev",
+                "php-boot/http": "@dev",
+                "php-boot/utils": "@dev",
+                "ramsey/uuid": "^4.7.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Http\\Routing\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "php-boot/security",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Security",
+                "reference": "e427c56fc38feece75f5c0f210a4f2b7432be9eb"
+            },
+            "require": {
+                "php": ">=8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Security\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "php-boot/starter-event",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Starters/Event",
+                "reference": "4ae7475a2b170167c41d187e33739a483edf4219"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/core": "@dev",
+                "php-boot/event": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Starter\\Event\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "php-boot/starter-web",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Starters/Web",
+                "reference": "fbede36d599a2988c2f0cb17accc49afc282c2f9"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/core": "@dev",
+                "php-boot/http": "@dev",
+                "php-boot/routing": "@dev",
+                "php-boot/starter-event": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Starter\\Web\\": "src/"
                 }
             },
             "license": [
@@ -986,10 +1118,10 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "php-boot/di": 20,
-        "php-boot/http": 20,
+        "php-boot/core": 20,
         "php-boot/event": 20,
-        "php-boot/utils": 20
+        "php-boot/security": 20,
+        "php-boot/starter-web": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

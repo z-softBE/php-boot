@@ -1,25 +1,30 @@
 {
-  "name": "php-boot/routing",
+  "name": "php-boot/starter-web-security",
   "minimum-stability": "dev",
   "license": "MIT",
   "require": {
     "php": ">=8.3",
-    "php-boot/di": "@dev",
-    "php-boot/http": "@dev",
+    "php-boot/core": "@dev",
     "php-boot/event": "@dev",
-    "php-boot/utils": "@dev",
-    "jms/serializer": "^3.30.0",
-    "ramsey/uuid": "^4.7.6"
+    "php-boot/security": "@dev",
+    "php-boot/starter-web": "@dev"
   },
   "autoload": {
     "psr-4": {
-      "PhpBoot\\Http\\Routing\\": "src/"
+      "PhpBoot\\Starter\\Web\\Security\\": "src/"
     }
   },
   "repositories": [
     {
       "type": "path",
       "url": "/home/wout/Documents/php-boot/Framework/Components/*",
+      "options": {
+        "useSymlink": true
+      }
+    },
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Starters/*",
       "options": {
         "useSymlink": true
       }

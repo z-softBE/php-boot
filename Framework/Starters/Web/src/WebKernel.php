@@ -55,7 +55,8 @@ abstract class WebKernel extends Kernel
         $this->router = new Router(
             new RouteMatcher($this->cachedRouteInfo),
             new RouteArgumentGenerator($serializer),
-            new RouteResponseGenerator($serializer)
+            new RouteResponseGenerator($serializer),
+            $this->eventSystem
         );
     }
 
