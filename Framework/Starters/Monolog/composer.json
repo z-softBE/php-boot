@@ -1,0 +1,24 @@
+{
+  "name": "php-boot/starter-monolog",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.3",
+    "php-boot/core": "@dev",
+    "monolog/monolog": "^3.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpBoot\\Starter\\Monolog\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Components/*",
+      "options": {
+        "useSymlink": true
+      }
+    }
+  ]
+}
