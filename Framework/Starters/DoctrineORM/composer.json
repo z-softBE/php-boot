@@ -1,0 +1,28 @@
+{
+  "name": "php-boot/starter-doctrine-orm",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.3",
+    "php-boot/core": "@dev",
+    "php-boot/utils": "@dev",
+    "php-boot/data": "@dev",
+    "doctrine/orm": "^3",
+    "doctrine/dbal": "^4",
+    "symfony/cache": "^7"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpBoot\\Starter\\DoctrineORM\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Components/*",
+      "options": {
+        "useSymlink": true
+      }
+    }
+  ]
+}
