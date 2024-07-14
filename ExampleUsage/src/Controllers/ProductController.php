@@ -13,6 +13,7 @@ use PhpBoot\Http\Routing\Attributes\Path\PostPath;
 use PhpBoot\Http\Routing\Attributes\Response\ResponseBody;
 use PhpBoot\Http\Routing\Attributes\Response\ResponseBodyType;
 use PhpBoot\Http\Routing\Attributes\Response\ResponseStatus;
+use PhpBoot\Starter\Twig\TwigRenderer;
 
 #[Controller]
 class ProductController
@@ -20,7 +21,8 @@ class ProductController
 
     public function __construct(
         private EntityManager $entityManager,
-        private ProductRepository $productRepository
+        private ProductRepository $productRepository,
+        private TwigRenderer $renderer
     )
     {
 
@@ -41,10 +43,15 @@ class ProductController
     }
 
     #[GetPath(path: '/products/{name}')]
-    #[ResponseBody(type: ResponseBodyType::JSON)]
+    #[ResponseBody(type: ResponseBodyType::RAW, produces: 'text/html')]
     #[ResponseStatus(statusCode: HttpStatusCode::HTTP_OK)]
-    public function getProduct(#[PathVariable] string $name): Product
+    public function getProduct(#[PathVariable] string $name): string
     {
-        return $this->productRepository->getProductByName($name);
+        $product = $this->productRepository->getProductByName($name);
+
+        return $this->renderer->render(
+            'product.html.twig',
+            ["product" => $product]
+        );
     }
 }
