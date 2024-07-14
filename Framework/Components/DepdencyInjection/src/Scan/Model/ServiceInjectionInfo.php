@@ -2,12 +2,34 @@
 
 namespace PhpBoot\Di\Scan\Model;
 
+use PhpBoot\Di\Scan\Model\Builder\ServiceInjectionInfoBuilder;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionNamedType;
 
 readonly class ServiceInjectionInfo
 {
+    public static function fromArray(array $config): self
+    {
+        $reflectionClass = new ReflectionClass($config['class']);
+        $beanMethod = isset($config['beanMethod']) ? $reflectionClass->getMethod($config['beanMethod']) : null;
+
+        $builder = new ServiceInjectionInfoBuilder();
+        return $builder
+            ->withClass($reflectionClass)
+            ->withInjectionName($config['injectionName'])
+            ->withServiceAttributeClassName($config['serviceAttributeClassName'])
+            ->withPrimary($config['primary'])
+            ->withConstructorArgs(array_map(
+                static fn($arg) => ConstructorInjectionArg::formArray($arg, $reflectionClass),
+                $config['constructorArgs']
+            ))
+            ->withBeanMethod($beanMethod)
+            ->withBeanType($beanMethod?->getReturnType())
+            ->withConfigurationContainerKey($config['configurationContainerKey'])
+            ->build();
+    }
+
     private ReflectionClass $class;
     private string|null $injectionName;
     private string $serviceAttributeClassName;

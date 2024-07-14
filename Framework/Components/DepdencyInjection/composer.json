@@ -6,7 +6,8 @@
     "php": ">=8.3",
     "psr/container": "^2.0.2",
     "php-boot/utils": "@dev",
-    "symfony/yaml": "^v7.1.1"
+    "symfony/yaml": "^v7.1.1",
+    "nette/php-generator": "^4.1"
   },
   "autoload": {
     "psr-4": {

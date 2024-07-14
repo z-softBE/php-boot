@@ -3,11 +3,35 @@
 namespace PhpBoot\Di\Scan\Model;
 
 use PhpBoot\Di\Attribute\Property;
+use PhpBoot\Di\Exception\ServiceScannerException;
+use PhpBoot\Di\Scan\Model\Builder\ConstructorInjectionArgBuilder;
 use PhpBoot\Utils\ArrayUtils;
+use ReflectionClass;
 use ReflectionParameter;
 
 readonly class ConstructorInjectionArg
 {
+    public static function formArray(array $config, ReflectionClass $reflectionClass): self
+    {
+        $builder = new ConstructorInjectionArgBuilder();
+        return $builder
+            ->withParameter(self::findConstructorParameterByName($reflectionClass, $config['parameterName']))
+            ->withType($config['type'])
+            ->withQualifier($config['qualifier'])
+            ->build();
+    }
+
+    private static function findConstructorParameterByName(ReflectionClass $class, string $paramName): ReflectionParameter
+    {
+        foreach ($class->getConstructor()->getParameters() as $parameter) {
+            if ($parameter->name === $paramName) {
+                return $parameter;
+            }
+        }
+
+        throw new ServiceScannerException("Could not find the constructor param of class '{$class->name}' with name '{$paramName}'");
+    }
+
     private ReflectionParameter $parameter;
     private ConstructorInjectionArgType $type;
     private string|null $qualifier;

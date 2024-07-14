@@ -2,12 +2,14 @@
 
 namespace PhpBoot\Core;
 
+use PhpBoot\Di\Cache\ServiceInjectionCacheGenerator;
 use PhpBoot\Di\Container\ServiceContainer;
 use PhpBoot\Di\Container\ServiceContainerInterface;
 use PhpBoot\Di\Inject\ServiceCreator;
 use PhpBoot\Di\Property\PropertiesReader;
 use PhpBoot\Di\Property\PropertyRegistry;
 use PhpBoot\Di\Scan\ServiceScanner;
+use PhpBoot\Utils\FileSystemUtils;
 
 abstract class Kernel
 {
@@ -52,8 +54,18 @@ abstract class Kernel
 
     protected function createContainer(): void
     {
-        $scanner = new ServiceScanner($this->getPsr4Mappings(), $this->getNamespacesToScan());
-        $scannedServices = $scanner->scan();
+        $cacheFile = $this->getCacheDirectory() . DIRECTORY_SEPARATOR . 'Di' . DIRECTORY_SEPARATOR . 'CachedServiceInjectionInfo.php';
+        if ($this->production && FileSystemUtils::fileExists($cacheFile)) {
+            require $cacheFile;
+
+            $scannedServices = \Cache\PhpBoot\Di\CachedServiceInjectionInfo::getServiceInjectionInfoArray();
+        } else {
+            $scanner = new ServiceScanner($this->getPsr4Mappings(), $this->getNamespacesToScan());
+            $scannedServices = $scanner->scan();
+
+            $cacheGenerator = new ServiceInjectionCacheGenerator();
+            $cacheGenerator->cacheServiceInjectionInfo($this->getCacheDirectory(), $scannedServices);
+        }
 
         $serviceCreator = new ServiceCreator($this->propertyRegistry);
         $beanMap = $serviceCreator->createServices($scannedServices);
