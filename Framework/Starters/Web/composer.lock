@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cc7e44f977e6054b3fe723e4568467b",
+    "content-hash": "9f2788def3e62f446cd5232fa53de5e4",
     "packages": [
         {
             "name": "brick/math",
@@ -143,12 +143,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/lexer.git",
-                "reference": "cd03cc3c085aa94b046bd2d342b08d6b0e5d834f"
+                "reference": "042e47e28c5e03f1cf6772fdf3dd4e0785433e05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/cd03cc3c085aa94b046bd2d342b08d6b0e5d834f",
-                "reference": "cd03cc3c085aa94b046bd2d342b08d6b0e5d834f",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/042e47e28c5e03f1cf6772fdf3dd4e0785433e05",
+                "reference": "042e47e28c5e03f1cf6772fdf3dd4e0785433e05",
                 "shasum": ""
             },
             "require": {
@@ -212,7 +212,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-05T12:02:27+00:00"
+            "time": "2024-07-29T08:29:21+00:00"
         },
         {
             "name": "jms/metadata",
@@ -454,6 +454,31 @@
             }
         },
         {
+            "name": "php-boot/exception",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Exception",
+                "reference": "02f20258bfc7017703c827dc98bb62e188c70230"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/http": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Exception\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "php-boot/http",
             "version": "dev-master",
             "dist": {
@@ -484,12 +509,13 @@
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Components/Routing",
-                "reference": "6181185b1c4b4bfd1d8c5db36df4eba37414b8e4"
+                "reference": "33e27c547fc6585d51d206306213e110ecd2ad01"
             },
             "require": {
                 "jms/serializer": "^3.30.0",
                 "php": ">=8.3",
                 "php-boot/di": "@dev",
+                "php-boot/event": "@dev",
                 "php-boot/http": "@dev",
                 "php-boot/utils": "@dev",
                 "ramsey/uuid": "^4.7.6"
@@ -1067,6 +1093,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "php-boot/core": 20,
+        "php-boot/exception": 20,
         "php-boot/http": 20,
         "php-boot/routing": 20,
         "php-boot/starter-event": 20

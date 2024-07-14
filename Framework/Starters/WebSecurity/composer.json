@@ -6,6 +6,7 @@
     "php": ">=8.3",
     "php-boot/core": "@dev",
     "php-boot/event": "@dev",
+    "php-boot/exception": "@dev",
     "php-boot/security": "@dev",
     "php-boot/starter-web": "@dev"
   },

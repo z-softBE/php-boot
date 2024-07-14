@@ -1191,6 +1191,31 @@
             }
         },
         {
+            "name": "php-boot/exception",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Exception",
+                "reference": "02f20258bfc7017703c827dc98bb62e188c70230"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/http": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Exception\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "php-boot/http",
             "version": "dev-master",
             "dist": {
@@ -1385,11 +1410,12 @@
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Starters/Web",
-                "reference": "fbede36d599a2988c2f0cb17accc49afc282c2f9"
+                "reference": "5daff0638dc25bb1e3cc0f3e3fe2ef4e16cd450d"
             },
             "require": {
                 "php": ">=8.3",
                 "php-boot/core": "@dev",
+                "php-boot/exception": "@dev",
                 "php-boot/http": "@dev",
                 "php-boot/routing": "@dev",
                 "php-boot/starter-event": "@dev"
@@ -1413,12 +1439,13 @@
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Starters/WebSecurity",
-                "reference": "d0d78e1a3a5ced1153ad9785d585ff4764212b58"
+                "reference": "50d61525362e077e0f821e6d2494122c30cf9495"
             },
             "require": {
                 "php": ">=8.3",
                 "php-boot/core": "@dev",
                 "php-boot/event": "@dev",
+                "php-boot/exception": "@dev",
                 "php-boot/security": "@dev",
                 "php-boot/starter-web": "@dev"
             },

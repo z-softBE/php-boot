@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba092fa42076ceadc096fc013098dccf",
+    "content-hash": "ca63ab9bd91665561b949ca6ad5fa086",
     "packages": [
         {
             "name": "brick/math",
@@ -454,6 +454,31 @@
             }
         },
         {
+            "name": "php-boot/exception",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Exception",
+                "reference": "02f20258bfc7017703c827dc98bb62e188c70230"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/http": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Exception\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "php-boot/http",
             "version": "dev-master",
             "dist": {
@@ -484,12 +509,13 @@
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Components/Routing",
-                "reference": "6181185b1c4b4bfd1d8c5db36df4eba37414b8e4"
+                "reference": "33e27c547fc6585d51d206306213e110ecd2ad01"
             },
             "require": {
                 "jms/serializer": "^3.30.0",
                 "php": ">=8.3",
                 "php-boot/di": "@dev",
+                "php-boot/event": "@dev",
                 "php-boot/http": "@dev",
                 "php-boot/utils": "@dev",
                 "ramsey/uuid": "^4.7.6"
@@ -563,11 +589,12 @@
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Starters/Web",
-                "reference": "fbede36d599a2988c2f0cb17accc49afc282c2f9"
+                "reference": "5daff0638dc25bb1e3cc0f3e3fe2ef4e16cd450d"
             },
             "require": {
                 "php": ">=8.3",
                 "php-boot/core": "@dev",
+                "php-boot/exception": "@dev",
                 "php-boot/http": "@dev",
                 "php-boot/routing": "@dev",
                 "php-boot/starter-event": "@dev"
@@ -1120,6 +1147,7 @@
     "stability-flags": {
         "php-boot/core": 20,
         "php-boot/event": 20,
+        "php-boot/exception": 20,
         "php-boot/security": 20,
         "php-boot/starter-web": 20
     },
