@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2722492812aeb38e3dc7600572f06b78",
+    "content-hash": "058827a7269efe1c44169d69d117a4a1",
     "packages": [
         {
             "name": "php-boot/di",
@@ -24,6 +24,31 @@
             "autoload": {
                 "psr-4": {
                     "PhpBoot\\Di\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "php-boot/http",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Http",
+                "reference": "4c7372bd7ed3be5ed87e8f184788a57d0d1ca13a"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/utils": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Http\\": "src/"
                 }
             },
             "license": [
@@ -266,12 +291,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "aaf847b839ab2cbe99186af15b04fed391c12c1b"
+                "reference": "9a80908ffb6ac2b988927f990450490c68e43594"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/aaf847b839ab2cbe99186af15b04fed391c12c1b",
-                "reference": "aaf847b839ab2cbe99186af15b04fed391c12c1b",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/9a80908ffb6ac2b988927f990450490c68e43594",
+                "reference": "9a80908ffb6ac2b988927f990450490c68e43594",
                 "shasum": ""
             },
             "require": {
@@ -330,14 +355,15 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-06T07:57:47+00:00"
+            "time": "2024-07-22T10:44:49+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "php-boot/di": 20
+        "php-boot/di": 20,
+        "php-boot/http": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

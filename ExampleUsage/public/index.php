@@ -4,6 +4,7 @@ use PhpBoot\Di\Inject\ServiceCreator;
 use PhpBoot\Di\Property\PropertiesReader;
 use PhpBoot\Di\Property\PropertyRegistry;
 use PhpBoot\Di\Scan\ServiceScanner;
+use PhpBoot\Http\Request\RequestFactory;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -13,6 +14,10 @@ ini_set('xdebug.var_display_max_children', 256);
 ini_set('xdebug.var_display_max_data', 1024);
 
 require dirname(__DIR__) . '/vendor/autoload.php';
+
+$request = RequestFactory::createFromGlobals();
+var_dump($request);
+die;
 
 $propertyReader = new PropertiesReader();
 $readProperties = $propertyReader->readProperties(dirname(__DIR__) . '/config/properties.yaml');
