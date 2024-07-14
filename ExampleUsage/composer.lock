@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "798dbd671540465aa6dee1229a4f13f1",
+    "content-hash": "b4b7c23f3aad11830b177ca24f575cb5",
     "packages": [
         {
             "name": "brick/math",
@@ -1065,6 +1065,30 @@
             }
         },
         {
+            "name": "php-boot/event",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Event",
+                "reference": "b720d28bbaf7dbba3db7f0316869473d7fef20a7"
+            },
+            "require": {
+                "php": ">=8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Event\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "php-boot/http",
             "version": "dev-master",
             "dist": {
@@ -1149,16 +1173,43 @@
             }
         },
         {
+            "name": "php-boot/starter-event",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Starters/Event",
+                "reference": "4ae7475a2b170167c41d187e33739a483edf4219"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/core": "@dev",
+                "php-boot/event": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Starter\\Event\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "php-boot/starter-twig",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Starters/Twig",
-                "reference": "0d721e4b3ea8292924b6e90c7bb261ca13a211f7"
+                "reference": "ddc8555ed95d9aeedb29c8d5ec8a0a58100065d0"
             },
             "require": {
                 "php": ">=8.3",
                 "php-boot/core": "@dev",
+                "php-boot/starter-event": "@dev",
                 "php-boot/template": "@dev",
                 "twig/twig": "^3.0"
             },
@@ -1181,13 +1232,14 @@
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Starters/Web",
-                "reference": "f150c147862644c5d615b3ee2190ae9b624ebcb3"
+                "reference": "fbede36d599a2988c2f0cb17accc49afc282c2f9"
             },
             "require": {
                 "php": ">=8.3",
                 "php-boot/core": "@dev",
                 "php-boot/http": "@dev",
-                "php-boot/routing": "@dev"
+                "php-boot/routing": "@dev",
+                "php-boot/starter-event": "@dev"
             },
             "type": "library",
             "autoload": {
@@ -2861,7 +2913,8 @@
     "stability-flags": {
         "php-boot/starter-web": 20,
         "php-boot/starter-doctrine-orm": 20,
-        "php-boot/starter-twig": 20
+        "php-boot/starter-twig": 20,
+        "php-boot/starter-event": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

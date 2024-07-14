@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65eae071219f7a87c357929232533527",
+    "content-hash": "9cc7e44f977e6054b3fe723e4568467b",
     "packages": [
         {
             "name": "brick/math",
@@ -430,6 +430,30 @@
             }
         },
         {
+            "name": "php-boot/event",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Components/Event",
+                "reference": "b720d28bbaf7dbba3db7f0316869473d7fef20a7"
+            },
+            "require": {
+                "php": ">=8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Event\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
             "name": "php-boot/http",
             "version": "dev-master",
             "dist": {
@@ -474,6 +498,32 @@
             "autoload": {
                 "psr-4": {
                     "PhpBoot\\Http\\Routing\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "transport-options": {
+                "relative": false
+            }
+        },
+        {
+            "name": "php-boot/starter-event",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/home/wout/Documents/php-boot/Framework/Starters/Event",
+                "reference": "4ae7475a2b170167c41d187e33739a483edf4219"
+            },
+            "require": {
+                "php": ">=8.3",
+                "php-boot/core": "@dev",
+                "php-boot/event": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpBoot\\Starter\\Event\\": "src/"
                 }
             },
             "license": [
@@ -1018,7 +1068,8 @@
     "stability-flags": {
         "php-boot/core": 20,
         "php-boot/http": 20,
-        "php-boot/routing": 20
+        "php-boot/routing": 20,
+        "php-boot/starter-event": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
