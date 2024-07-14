@@ -147,8 +147,11 @@ class RouteScanner
             $builder
                 ->withParameterName($parameter->getName())
                 ->withReflectionType($reflectionType)
-                ->withNullable($parameter->allowsNull() || $reflectionType->allowsNull())
-                ->withDefaultValue($parameter->isDefaultValueAvailable() ? $parameter->getDefaultValue() : null);
+                ->withNullable($parameter->allowsNull() || $reflectionType->allowsNull());
+
+            if ($parameter->isDefaultValueAvailable()) {
+                $builder->withDefaultValue($parameter->getDefaultValue());
+            }
 
             if ($reflectionType->getName() === Request::class || is_subclass_of($reflectionType->getName(), Request::class)) {
                 $builder
@@ -175,9 +178,17 @@ class RouteScanner
                     has an attribute that we do not support.")
                 };
 
+                $attributeInstance = $attribute->newInstance();
+                if (
+                    ($type === RouteArgumentType::QUERY_PARAM || $type === RouteArgumentType::HEADER_PARAM) &&
+                    $attributeInstance->defaultValue !== null
+                ) {
+                    $builder->withDefaultValue($attributeInstance->defaultValue);
+                }
+
                 $builder
                     ->withType($type)
-                    ->withAttribute($attribute->newInstance());
+                    ->withAttribute($attributeInstance);
             }
 
             $routeArguments[] = $builder->build();
