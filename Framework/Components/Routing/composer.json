@@ -7,7 +7,8 @@
     "php-boot/di": "@dev",
     "php-boot/http": "@dev",
     "php-boot/utils": "@dev",
-    "jms/serializer": "^3.30.0"
+    "jms/serializer": "^3.30.0",
+    "ramsey/uuid": "^4.7.6"
   },
   "autoload": {
     "psr-4": {
