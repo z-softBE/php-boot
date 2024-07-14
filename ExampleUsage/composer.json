@@ -3,12 +3,21 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=8.3",
-    "php-boot/starter-web": "@dev"
+    "php-boot/starter-web": "@dev",
+    "php-boot/starter-doctrine-orm": "@dev"
   },
   "autoload": {
     "psr-4": {
       "App\\": "src/"
     }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "PhpBoot\\Starter\\DoctrineORM\\Composer\\DoctrineORMPostInstaller::execute"
+    ],
+    "post-update-cmd": [
+      "PhpBoot\\Starter\\DoctrineORM\\Composer\\DoctrineORMPostInstaller::execute"
+    ]
   },
   "repositories": [
     {

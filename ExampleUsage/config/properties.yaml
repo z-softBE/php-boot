@@ -2,3 +2,11 @@ production: false
 
 hello:
   world: "Hello, I'm a property"
+
+doctrine:
+  orm:
+    driver: pdo_sqlite
+    scanPaths:
+      - 'src/Model/Entity'
+    sqlite:
+      path: 'db/db.sqlite'

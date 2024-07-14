@@ -11,7 +11,8 @@ class AppKernel extends WebKernel
     {
         return [
             'App',
-            'PhpBoot\\Starter\\Web\\'
+            'PhpBoot\\Starter\\Web\\',
+            'PhpBoot\\Starter\\DoctrineORM\\'
         ];
     }
 

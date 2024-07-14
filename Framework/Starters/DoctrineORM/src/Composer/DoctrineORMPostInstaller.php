@@ -9,7 +9,7 @@ class DoctrineORMPostInstaller
     private const string PHP_FILE_CONTENT = <<<'PHP'
 <?php
 
-require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php'
+require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
 $reader = new \PhpBoot\Di\Property\PropertiesReader();
 $properties = $reader->readProperties(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'properties.yaml');
