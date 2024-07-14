@@ -1,0 +1,14 @@
+{
+  "name": "php-boot/utils",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.3",
+    "ext-fileinfo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpBoot\\Utils\\": "src/"
+    }
+  }
+}
