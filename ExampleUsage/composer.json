@@ -6,7 +6,8 @@
     "php-boot/starter-web": "@dev",
     "php-boot/starter-doctrine-orm": "@dev",
     "php-boot/starter-twig": "@dev",
-    "php-boot/starter-event": "@dev"
+    "php-boot/starter-event": "@dev",
+    "php-boot/starter-monolog": "@dev"
   },
   "autoload": {
     "psr-4": {

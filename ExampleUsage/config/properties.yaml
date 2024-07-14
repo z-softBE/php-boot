@@ -10,3 +10,9 @@ doctrine:
       - 'src/Model/Entity'
     sqlite:
       path: 'db/db.sqlite'
+
+logging:
+  name: exampleUsage
+  fileHandler:
+    path: logs/app.log
+    level: DEBUG

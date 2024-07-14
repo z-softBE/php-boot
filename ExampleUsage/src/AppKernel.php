@@ -14,7 +14,8 @@ class AppKernel extends WebKernel
             'PhpBoot\\Starter\\Web\\',
             'PhpBoot\\Starter\\DoctrineORM\\',
             'PhpBoot\\Starter\\Twig\\',
-            'PhpBoot\\Starter\\Event\\'
+            'PhpBoot\\Starter\\Event\\',
+            'PhpBoot\\Starter\\Monolog\\'
         ];
     }
 

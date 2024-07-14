@@ -9,24 +9,23 @@ use PhpBoot\Event\EventSystem;
 use PhpBoot\Event\Model\Event;
 
 #[Service]
-class TwigRendererEventConsumer implements EventConsumer
+class RequestHandlerEventConsumer implements EventConsumer
 {
-
     public function __construct(
         EventSystem $eventSystem,
         private Logger $logger
     )
     {
-        $eventSystem->registerConsumer('twigRendererEventConsumer', $this);
+        $eventSystem->registerConsumer(self::class, $this);
     }
 
     public function consumeEvent(Event $event): void
     {
-        $this->logger->info("Rendering template: {$event->getMeteData()['path']}");
+        $this->logger->info("Received event: {$event->getId()}");
     }
 
     public function supports(string $eventId): bool
     {
-        return $eventId === 'twigRenderer.render';
+        return $eventId === 'handleRequest.start' || $eventId === 'handleRequest.sendResponse';
     }
 }
