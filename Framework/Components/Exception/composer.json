@@ -1,0 +1,23 @@
+{
+  "name": "php-boot/exception",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.3",
+    "php-boot/http": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpBoot\\Exception\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/home/wout/Documents/php-boot/Framework/Components/*",
+      "options": {
+        "useSymlink": true
+      }
+    }
+  ]
+}
