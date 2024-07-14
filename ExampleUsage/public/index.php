@@ -4,7 +4,9 @@ use PhpBoot\Di\Inject\ServiceCreator;
 use PhpBoot\Di\Property\PropertiesReader;
 use PhpBoot\Di\Property\PropertyRegistry;
 use PhpBoot\Di\Scan\ServiceScanner;
+use PhpBoot\Http\Common\HttpStatusCode;
 use PhpBoot\Http\Request\RequestFactory;
+use PhpBoot\Http\Response\Response;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -16,7 +18,14 @@ ini_set('xdebug.var_display_max_data', 1024);
 require dirname(__DIR__) . '/vendor/autoload.php';
 
 $request = RequestFactory::createFromGlobals();
-var_dump($request);
+$response = new Response(
+    'Hello world',
+    HttpStatusCode::HTTP_CREATED,
+    ['x-custom-header' => 'abc-123']
+);
+$response->setContentType('text/raw');
+$response->prepare($request);
+$response->send();
 die;
 
 $propertyReader = new PropertiesReader();
