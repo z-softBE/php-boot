@@ -9,12 +9,14 @@ use PhpBoot\Event\EventSystem;
 use PhpBoot\Event\Model\Event;
 use PhpBoot\Exception\ExceptionHandlerDelegator;
 use PhpBoot\Http\Request\Request;
+use PhpBoot\Http\Routing\Cache\RouteCacheGenerator;
 use PhpBoot\Http\Routing\Generator\RouteArgumentGenerator;
 use PhpBoot\Http\Routing\Generator\RouteResponseGenerator;
 use PhpBoot\Http\Routing\Matcher\RouteMatcher;
 use PhpBoot\Http\Routing\Router;
 use PhpBoot\Http\Routing\Scan\RouteScanner;
 use PhpBoot\Starter\Web\Interceptor\InterceptorChain;
+use PhpBoot\Utils\FileSystemUtils;
 
 abstract class WebKernel extends Kernel
 {
@@ -70,7 +72,19 @@ abstract class WebKernel extends Kernel
 
     protected function generateCachedRouteInfo(): void
     {
+        $cacheFile = $this->getCacheDirectory() . DIRECTORY_SEPARATOR . 'Http' . DIRECTORY_SEPARATOR . 'Routing'
+            . DIRECTORY_SEPARATOR . 'CachedRoutes.php';
+        if ($this->production && FileSystemUtils::fileExists($cacheFile)) {
+            require $cacheFile;
+            $this->cachedRouteInfo = \Cache\PhpBoot\Http\Routing\CachedRoutes::getRoutes($this->serviceContainer);
+
+            return;
+        }
+
         $routeScanner = new RouteScanner();
         $this->cachedRouteInfo = $routeScanner->scanForRoutes($this->serviceContainer);
+
+        $cacheGenerator = new RouteCacheGenerator();
+        $cacheGenerator->cacheRoutes($this->getCacheDirectory(), $this->cachedRouteInfo);
     }
 }

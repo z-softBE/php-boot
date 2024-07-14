@@ -6,10 +6,53 @@ use PhpBoot\Http\Routing\Attributes\Path\PathVariable;
 use PhpBoot\Http\Routing\Attributes\Request\HeaderParam;
 use PhpBoot\Http\Routing\Attributes\Request\QueryParam;
 use PhpBoot\Http\Routing\Attributes\Request\RequestBody;
+use PhpBoot\Http\Routing\Exception\PathInvalidException;
+use PhpBoot\Http\Routing\Scan\Model\Builder\RouteArgumentBuilder;
+use ReflectionMethod;
 use ReflectionNamedType;
+use ReflectionParameter;
 
 readonly class RouteArgument
 {
+    public static function fromArray(array $config, ReflectionMethod $method): self
+    {
+        $foundParameter = self::getMethodParameterFromArray($method, $config['parameterName']);
+
+        $builder = new RouteArgumentBuilder();
+        return $builder
+            ->withType($config['type'])
+            ->withAttribute(self::getAttributeFromArray($config['attribute']))
+            ->withParameterName($config['parameterName'])
+            ->withReflectionType($foundParameter->getType())
+            ->withNullable($config['nullable'])
+            ->withDefaultValue($config['defaultValue'])
+            ->build();
+    }
+
+    private static function getMethodParameterFromArray(ReflectionMethod $method, string $paramName): ReflectionParameter
+    {
+        foreach ($method->getParameters() as $parameter) {
+            if ($parameter->name === $paramName) {
+                return $parameter;
+            }
+        }
+
+        throw new PathInvalidException("Could not find the parameter with name '{$paramName}' 
+        in method '{$method->name}' in class '{$method->getDeclaringClass()->name}'");
+    }
+
+    private static function getAttributeFromArray(array|null $attributeConfig): QueryParam|HeaderParam|PathVariable|RequestBody|null
+    {
+        if ($attributeConfig === null) return null;
+
+        return match ($attributeConfig['type']) {
+            QueryParam::class => new QueryParam($attributeConfig['name'], $attributeConfig['defaultValue'], $attributeConfig['required'] ?? false),
+            HeaderParam::class => new HeaderParam($attributeConfig['name'], $attributeConfig['defaultValue'], $attributeConfig['required'] ?? false),
+            RequestBody::class => new RequestBody($attributeConfig['required'] ?? false),
+            PathVariable::class => new PathVariable($attributeConfig['name']),
+        };
+    }
+
     private RouteArgumentType $type;
     private PathVariable|RequestBody|HeaderParam|QueryParam|null $attribute;
     private string $parameterName;
@@ -70,7 +113,6 @@ readonly class RouteArgument
     {
         return $this->defaultValue;
     }
-
 
 
 }

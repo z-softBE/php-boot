@@ -4,6 +4,11 @@ namespace PhpBoot\Http\Routing\Scan\Model;
 
 readonly class PathElement
 {
+    public static function fromArray(array $config): self
+    {
+        return new self($config['type'], $config['value']);
+    }
+
     private PathElementType $type;
     private string $value;
 

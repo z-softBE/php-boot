@@ -3,15 +3,38 @@
 namespace PhpBoot\Http\Routing\Scan\Model;
 
 use PhpBoot\Di\Container\BeanInfo;
+use PhpBoot\Di\Container\ServiceContainerInterface;
 use PhpBoot\Http\Common\HttpMethod;
 use PhpBoot\Http\Routing\Attributes\Response\ResponseBody;
 use PhpBoot\Http\Routing\Attributes\Response\ResponseStatus;
+use PhpBoot\Http\Routing\Scan\Model\Builder\RouteInfoBuilder;
 use Ramsey\Uuid\Uuid;
+use ReflectionClass;
 use ReflectionMethod;
 use ReflectionNamedType;
 
 readonly class RouteInfo
 {
+    public static function fromArray(array $config, ServiceContainerInterface $container): self
+    {
+        $bean = $container->getBeanInfo($config['controllerBeanName']);
+        $controllerClass = new ReflectionClass($config['controllerClass']);
+        $method = $controllerClass->getMethod($config['methodName']);
+
+        $builder = new RouteInfoBuilder();
+        return $builder
+            ->withRouteInfoId($config['routePathId'])
+            ->withControllerBean($bean)
+            ->withHttpMethod($config['httpMethod'])
+            ->withPath(array_map(static fn($elem) => PathElement::fromArray($elem), $config['path']))
+            ->withArguments(array_map(static fn($arg) => RouteArgument::fromArray($arg, $method), $config['arguments']))
+            ->withResponseBody($config['responseBody'] !== null ? new ResponseBody($config['responseBody']['type'], $config['responseBody']['produces']) : null)
+            ->withResponseStatus($config['responseStatus'] !== null ? new ResponseStatus($config['responseStatus']['statusCode']) : null)
+            ->withMethod($method)
+            ->withReturnType($method->getReturnType())
+            ->build();
+    }
+
     private string $routeInfoId;
     private BeanInfo $controllerBean;
     private HttpMethod $httpMethod;

@@ -1404,10 +1404,11 @@
             "dist": {
                 "type": "path",
                 "url": "/home/wout/Documents/php-boot/Framework/Components/Routing",
-                "reference": "33e27c547fc6585d51d206306213e110ecd2ad01"
+                "reference": "1980d56f5fd8966157e8ef80c7146cf5053a2f21"
             },
             "require": {
                 "jms/serializer": "^3.30.0",
+                "nette/php-generator": "^4.1",
                 "php": ">=8.3",
                 "php-boot/di": "@dev",
                 "php-boot/event": "@dev",
